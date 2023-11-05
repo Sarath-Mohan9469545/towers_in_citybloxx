@@ -3,7 +3,6 @@ import os
 
 sys.path.append(os.path.dirname(os.path.dirname(sys.path[0])))
 
-
 from utils.args_parse import check_args
 
 def main():
