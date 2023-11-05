@@ -1,5 +1,6 @@
 import random
 import numpy as np
+from tqdm import tqdm
 
 from pos_return import rpos,gpos,ypos
 from check_pos import checkg,checkr,checky
@@ -8,7 +9,7 @@ from check_pos import checkg,checkr,checky
 def iterator(build_value,num_iter,city_size):    
     maxsvalue=0
     bestlist=[]
-    for count in range(num_iter):
+    for count in tqdm(range(num_iter)):
         l=[[0]*7 for i in range(7)]
         for i in range(1,6):
             for j in range(1,6):
