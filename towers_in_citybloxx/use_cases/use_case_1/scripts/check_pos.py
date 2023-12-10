@@ -1,36 +1,58 @@
-def checkr(l):
-    for i in range(1,6):
-        for j in range(1,6):
-            if l[i+1][j]=="b" or l[i-1][j]=="b" or l[i][j+1]=="b" or l[i][j-1]=="b":
-                continue
-            elif l[i][j]=="r":
-                l[i][j]="b"
-    return l
+def check_pos(l,us,ds,ls,rs):
+    for i in range(len(l)):
+        for j in range(len(l)):
+            ijlist=[0,len(l)-1]
 
-def checkg(l):
-    for i in range(1,6):
-        for j in range(1,6):
-            neighbours=[l[i-1][j],l[i+1][j],l[i][j-1],l[i][j+1]]
-            if "r" in neighbours and "b" in neighbours:
-                continue
-            elif l[i][j]=="g":
-                if "b" in neighbours:
-                    l[i][j]="r"
+            if i in ijlist and j in ijlist:
+                if l[i][j]=="y":
+                    l[i][j]=="g"
                 else:
-                    l[i][j]="b"
-    return l
+                    if i==0 and j==0:
+                        if l[i][j]=="g" and "b" in [l[i][j+1],l[i+1][j]] and "r" in [l[i][j+1],l[i+1][j]]:
+                            continue
+                        else:
+                            l[i][j]=="r"
+                        
+
+
+            elif (i,j) in us:
+                
+                if l[i][j]=="y":
+                    y_l=[l[i+1][j],l[i][j+1],l[i][j-1]]
+                    if "b" in y_l and "r" in y_l and "g" in y_l:
+                        continue
+                    else:
+                        l[i][j]=="g"
+            
+            elif (i,j) in ds:
+                if l[i][j]=="y":    
+                    y_l=[l[i-1][j],l[i][j+1],l[i][j-1]]
+                    if "b" in y_l and "r" in y_l and "g" in y_l:
+                        continue
+                    else:
+                        l[i][j]=="g" 
+
+            elif (i,j) in ls:
+                if l[i][j]=="y":    
+                    y_l=[l[i-1][j],l[i][j+1],l[i+1][j]]
+                    if "b" in y_l and "r" in y_l and "g" in y_l:
+                        continue
+                    else:
+                        l[i][j]=="g" 
+            elif (i,j) in rs:
+                if l[i][j]=="y":    
+                    y_l=[l[i-1][j],l[i][j-1],l[i+1][j]]
+                    if "b" in y_l and "r" in y_l and "g" in y_l:
+                        continue
+                    else:
+                        l[i][j]=="g"
+
+            else:
+                if l[i][j]=="y":
+                    c_l=[l[i-1][j],l[i+1][j],l[i][j+1],l[i][j-1]]
+                    if "b" in c_l and "r" in c_l and "g" in c_l:
+                        continue
+                    else:
+                        l[i][j]=="g"
+                    
     
-def checky(l):
-    for i in range(1,6):
-        for j in range(1,6):
-            neighbours=[l[i-1][j],l[i+1][j],l[i][j-1],l[i][j+1]]
-            if "r" in neighbours and "g" in neighbours and "b" in neighbours:
-                continue
-            elif l[i][j]=="y":
-                if "r" in neighbours and "b" in neighbours:
-                    l[i][j]="g"
-                elif "b" in neighbours:
-                    l[i][j]="r"
-                else:
-                    l[i][j]="b"
-    return l

@@ -23,18 +23,19 @@ def i_c(args_list,iterations):
 
 
 def check_args(args_list):
-    if args_list[0]=="brute_force.py":
+
+    if args_list[0][-14:]=="brute_force.py":
         city_size=5
         iterations=10000
-        if len(args_list)==2:
-            city_size=c_s(args_list,city_size)
+    if len(args_list)==2:
+        city_size=c_s(args_list,city_size)
 
-        elif len(args_list)==3:
-            city_size=c_s(args_list,city_size)
-            iterations=i_c(args_list,iterations)
+    elif len(args_list)==3:
+        city_size=c_s(args_list,city_size)
+        iterations=i_c(args_list,iterations)
 
-        else:
-            raise Exception("Only city size and number of iterations are allowed as inputs.")
+    elif len(args_list)==0:
+        raise Exception("Only city size and number of iterations are allowed as inputs.")
 
     return city_size,iterations
 

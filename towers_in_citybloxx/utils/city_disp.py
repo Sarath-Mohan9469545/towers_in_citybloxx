@@ -9,10 +9,9 @@ def plot_city(l):
     plt.figure(frameon=True)
 
     lenofm=len(l)
-    data=np.arange(lenofm*lenofm).reshape(lenofm,lenofm)
-
-    for i in range(1,6):
-        for j in range(1,6):
+    data=np.arange((lenofm-2)*(lenofm-2)).reshape((lenofm-2),(lenofm-2))
+    for i in range(1,lenofm-1):
+        for j in range(1,lenofm-1):
             if l[i][j]=="b":
                 data[i-1][j-1]=5
             elif l[i][j]=="r":
