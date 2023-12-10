@@ -9,10 +9,10 @@ from utils.city_disp import plot_city
 
 def main():
     city_size,iterations=check_args(sys.argv)
-    bestlist,maxvalue=iterator(iterations,city_size)
+    bestlist=iterator(iterations,city_size)
 
     plot_city(bestlist)
-    print(maxvalue)
+    #print(maxvalue)
     print(bestlist)
     
 

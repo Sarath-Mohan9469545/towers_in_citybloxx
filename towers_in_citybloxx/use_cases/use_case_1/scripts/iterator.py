@@ -2,7 +2,7 @@ import random
 import numpy as np
 from tqdm import tqdm
 
-from .pos_return import rpos,gpos,ypos
+from .pos_return import reassign
 
 from .check_pos import checkpos
 
@@ -28,13 +28,29 @@ def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000,"0"
                 rs.append((i,j))
 
 
-    
+    prev_value=0
     for _ in tqdm(range(num_iter)):
-        checkpos(l,us,ds,ls,rs)
+        l=[[0]*city_size for i in range(city_size)]
+        for i in range(city_size):
+            for j in range(city_size):
+                l[i][j]=random.choice(["b","r","g","y"])
+        iter_n=0
+        while True:
+            l=checkpos(l,us,ds,ls,rs)
+            l,flag=reassign(l,us,ds,ls,rs)
+            if flag==0 or iter_n==100000:
+                break
+            iter_n+=1
+        value=0
+
+        for i in range(city_size):
+            for j in range(city_size):
+                value=build_value[l[i][j]]+value
+        
+        if value>prev_value:
+            best_list=l.copy()
+            prev_value=value
 
 
-
-
-
-
-    return bestlist,maxsvalue
+    print(value)
+    return best_list

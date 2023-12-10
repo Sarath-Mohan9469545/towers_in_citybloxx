@@ -1,32 +1,49 @@
+def reassign(l,us,ds,ls,rs):
+    for i in range(len(l)):
+        for j in range(len(l)):
+            ijlist=[0,len(l)-1]
 
-def rpos(l):
-    lenofl=len(l)
-    posr=[]
-    for i in range(1,lenofl-1):
-        for j in range(1,lenofl-1):
-            if l[i+1][j]=="b" or l[i-1][j]=="b" or l[i][j+1]=="b" or l[i][j-1]=="b":
-                if l[i][j]=="b":
-                    posr.append((i,j))
-    return posr
+            if i in ijlist and j in ijlist:
+                if i==0 and j==0:
+                    cl=[l[i][j+1],l[i+1][j]]
+                elif i==0 and j==len(l)-1:
+                    cl=[l[i][j-1],l[i+1][j]]
+                elif i==len(l)-1 and j==0:
+                    cl=[l[i][j+1],l[i-1][j]]
+                elif i==len(l)-1 and j==len(l)-1:
+                    cl=[l[i][j-1],l[i-1][j]]
+            
+            elif (i,j) in us:
+                cl=[l[i+1][j],l[i][j+1],l[i][j-1]]
+            elif (i,j) in ds:
+                cl=[l[i-1][j],l[i][j+1],l[i][j-1]]
+            elif (i,j) in ls:
+                cl=[l[i-1][j],l[i][j+1],l[i+1][j]]
+            elif (i,j) in rs:
+                cl=[l[i-1][j],l[i][j-1],l[i+1][j]]
+            else:
+                cl=[l[i-1][j],l[i][j-1],l[i+1][j],l[i][j+1]]
+            
+            flag=0
+            if l[i][j]=="g" and "g" in cl and "r" in cl and "b" in cl:
+                l[i][j]="y"
+                flag=1
+            elif l[i][j]=="r" and "g" in cl and "r" in cl and "b" in cl:
+                l[i][j]="y"
+                flag=1
+            elif l[i][j]=="r" and "r" in cl and "b" in cl:
+                l[i][j]="g"
+                flag=1
+            elif l[i][j]=="b" and "g" in cl and "r" in cl and "b" in cl:
+                l[i][j]="y"
+                flag=1
+            elif l[i][j]=="b" and "r" in cl and "b" in cl:
+                l[i][j]="g"
+                flag=1
+            elif l[i][j]=="b" and "b" in cl:
+                l[i][j]="r"
+                flag=1
+                
+    return l,flag   
 
 
-def gpos(l):
-    lenofl=len(l)
-    posg=[]
-    for i in range(1,lenofl-1):
-        for j in range(1,lenofl-1):
-            neighbours=[l[i-1][j],l[i+1][j],l[i][j-1],l[i][j+1]]
-            if "r" in neighbours and "b" in neighbours and l[i][j]!="g" and l[i][j]!="y":
-                posg.append((i,j))
-    return posg
-
-
-def ypos(l):
-    lenofl=len(l)
-    posy=[]
-    for i in range(1,lenofl-1):
-        for j in range(1,lenofl-1):
-            neighbours=[l[i-1][j],l[i+1][j],l[i][j-1],l[i][j+1]]
-            if "r" in neighbours and "g" in neighbours and "b" in neighbours and l[i][j]!="y":
-                posy.append((i,j))
-    return posy

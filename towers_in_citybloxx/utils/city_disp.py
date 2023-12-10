@@ -9,17 +9,17 @@ def plot_city(l):
     plt.figure(frameon=True)
 
     lenofm=len(l)
-    data=np.arange((lenofm-2)*(lenofm-2)).reshape((lenofm-2),(lenofm-2))
-    for i in range(1,lenofm-1):
-        for j in range(1,lenofm-1):
+    data=np.arange(lenofm*lenofm).reshape(lenofm,lenofm)
+    for i in range(lenofm):
+        for j in range(lenofm):
             if l[i][j]=="b":
-                data[i-1][j-1]=5
+                data[i][j]=5
             elif l[i][j]=="r":
-                data[i-1][j-1]=15
+                data[i][j]=15
             elif l[i][j]=="g":
-                data[i-1][j-1]=25
+                data[i][j]=25
             elif l[i][j]=="y":
-                data[i-1][j-1]=35
+                data[i][j]=35
 
     data=np.array(data)
     grid=True
