@@ -17,7 +17,7 @@ def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000,"0"
     l=[[0]*city_size for i in range(city_size)]
     for i in range(city_size):
         for j in range(city_size):
-            l[i][j]=random.choice(["b","r","g","y"])
+            #l[i][j]=random.choice(["b","r","g","y"])
             if i==0 and 0<j<len(l)-1:
                 us.append((i,j))
             if i==len(l)-1 and 0<j<len(l)-1:
@@ -36,11 +36,11 @@ def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000,"0"
                 l[i][j]=random.choice(["b","r","g","y"])
         iter_n=0
         while True:
-            l=checkpos(l,us,ds,ls,rs)
-            l,flag=reassign(l,us,ds,ls,rs)
-            if flag==0 or iter_n==100000:
+            wrong_pos=checkpos(l,us,ds,ls,rs)
+            if len(wrong_pos)==0:
                 break
-            iter_n+=1
+            l=reassign(wrong_pos,l)
+            
         value=0
 
         for i in range(city_size):
