@@ -33,6 +33,9 @@ Run the brute_force.py script to produce the city.
  cd towers_in_citybloxx\towers_in_citybloxx\use_cases\use_case_1
  python brute_force.py <city_size> <num_iterations>
 
+
+ ![Example of a city of size 5](towers_in_citybloxx\images\example_citysize_5.png)
+
  If not explicitily mentioned, the default values for city_size is 5 and num iterations is 10000.
  (City size should always be greater than 2).
 
