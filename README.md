@@ -1,7 +1,7 @@
 # Towers in City Bloxx
 Analysis of tower placement in the game City Bloxx
 
-In the mobile game City Bloxx, there are towers of four different colors (blue, red, green and yellow) that can be built to progress in the game. Each colored tower has value associated with it, with blue having the lowest value and yellow having the highest. The towers are build in an nxn sized grid, with each tower taking a single suqare in the gird.
+In the mobile game City Bloxx, there are towers of four different colors (blue, red, green and yellow) that can be built to progress in the game. Each colored tower has value associated with it, with blue having the lowest value and yellow having the highest. The towers are build in an nxn sized grid, with each tower taking a single square in the gird.
 
 There are certain rules that need to be followed when building these towers:
 1. To build an yellow tower in a square, there needs to be a red, a blue, and a green tower on any of the 4 adjacent neighbours of the square.
