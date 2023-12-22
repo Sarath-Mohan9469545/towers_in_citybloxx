@@ -23,6 +23,7 @@ This repoitory was tested in Python 3.11.7
 
  Use case 1 deals with giving a randomly generated city that follows the tower building criteria. You can specify the size of the city and the number of random generations created to find the highest scored city.
 
+
  Steps of the algorithm:
  1. Mention the city_size and num_iterations.
  2. Randomly generate a city of size city_sizeXcity_size.
@@ -40,6 +41,14 @@ Run the brute_force.py script to produce the city.
 ![Example of a city of size 5](towers_in_citybloxx/images/example_citysize_5.png)
 
  If not explicitily mentioned, the default values for city_size is 5 and num iterations is 10000.
+ The value for each type of tower by default is:
+ 1. Blue : 70
+ 2. Red : 250
+ 3. Green : 550
+ 4. Yellow : 1000
+
+These are the values mentioned in the game. You can set your own default values by editing the build_value dictionary in the brute_force.py file
+
  (City size should always be greater than 2).
  (Average time taken for 10000 iterations for a city of size 20 is 34 seconds).
 

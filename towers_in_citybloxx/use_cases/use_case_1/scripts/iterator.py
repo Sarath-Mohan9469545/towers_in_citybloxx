@@ -7,7 +7,7 @@ from .pos_return import reassign
 from .check_pos import checkpos
 
 
-def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000,"0":0}):    
+def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000}):    
     maxsvalue=0
     bestlist=[]
     us=[]

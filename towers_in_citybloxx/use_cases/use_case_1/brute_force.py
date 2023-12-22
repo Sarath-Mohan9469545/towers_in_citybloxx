@@ -9,7 +9,7 @@ from utils.city_disp import plot_city
 
 def main():
     city_size,iterations=check_args(sys.argv)
-    bestlist=iterator(iterations,city_size)
+    bestlist=iterator(iterations,city_size,build_value={"b":70,"r":250,"g":550,"y":1000})
 
     plot_city(bestlist)
     
