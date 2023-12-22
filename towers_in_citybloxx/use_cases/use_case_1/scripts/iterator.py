@@ -52,5 +52,5 @@ def iterator(num_iter,city_size,build_value={"b":70,"r":250,"g":550,"y":1000,"0"
             prev_value=value
 
 
-    print(value)
+    print(f"Score of city is {value}")
     return best_list

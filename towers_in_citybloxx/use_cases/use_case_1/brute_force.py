@@ -12,8 +12,8 @@ def main():
     bestlist=iterator(iterations,city_size)
 
     plot_city(bestlist)
-    #print(maxvalue)
-    print(bestlist)
+    
+    #print(bestlist)
     
 
 
