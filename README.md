@@ -47,7 +47,7 @@ Run the brute_force.py script to produce the city.
  3. Green : 550
  4. Yellow : 1000
 
-These are the values mentioned in the game. You can set your own default values by editing the build_value dictionary in the brute_force.py file
+These are the values mentioned in the game. You can set your own default values by editing the build_value dictionary in the brute_force.py file.
 
  (City size should always be greater than 2).
  (Average time taken for 10000 iterations for a city of size 20 is 34 seconds).
