@@ -37,8 +37,14 @@ Run the brute_force.py script to produce the city.
  python brute_force.py <city_size> <num_iterations>
 ```
 #### Example of a city of size 5:
- ![Example of a city of size 5](towers_in_citybloxx/images/example_citysize_5.png)
+![Example of a city of size 5](towers_in_citybloxx/images/example_citysize_5.png)
 
  If not explicitily mentioned, the default values for city_size is 5 and num iterations is 10000.
  (City size should always be greater than 2).
+ (Average time taken for 10000 ietrations for a city of size 6 is 2 seconds).
+
+#### Average and maximum scores for 1000 runs for 10000 iterations for each city:
+![Average and maximum scores for 1000 runs for 10000 iterations for each city](towers_in_citybloxx/images/city_score.png)
+
+
 
