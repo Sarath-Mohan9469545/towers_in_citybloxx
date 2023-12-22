@@ -41,7 +41,7 @@ Run the brute_force.py script to produce the city.
 
  If not explicitily mentioned, the default values for city_size is 5 and num iterations is 10000.
  (City size should always be greater than 2).
- (Average time taken for 10000 iterations for a city of size 6 is 2 seconds).
+ (Average time taken for 10000 iterations for a city of size 20 is 34 seconds).
 
 #### Average and maximum scores of 1000 runs for 10000 iterations for each city:
 ![Average and maximum scores for 1000 runs for 10000 iterations for each city](towers_in_citybloxx/images/city_score.png)
